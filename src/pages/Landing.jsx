@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import TodoContainer from "../components/TodoContainer";
@@ -6,6 +7,41 @@ import { useLocation } from "react-router-dom";
 function Landing() {
     const location = useLocation();
     const user = location.state?.user || "Guest";  
+
+        // State for weather data
+        const [weather, setWeather] = useState({ temp: null, condition: null });
+
+        // Fetch Weather Data
+        useEffect(() => {
+            const fetchWeather = async () => {
+                try {
+                    const apiKey = "9e2f483b43a855cabbdf6c768ba639dd"; // Replace with your OpenWeatherMap API key
+                    const city = "Chennai"; // Replace with the desired city
+                    const response = await fetch(
+                        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=9e2f483b43a855cabbdf6c768ba639dd`
+                    );
+                    const data = await response.json();
+                    setWeather({
+                        temp: data.main.temp,
+                        condition: data.weather[0].description,
+                    });
+                } catch (error) {
+                    console.error("Error fetching weather data:", error);
+                }
+            };
+            fetchWeather();
+        }, []);    
+
+    // Get the current date
+    const currentDate = new Date();
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    
+    const formattedDate = `${monthNames[currentDate.getMonth()]} ${currentDate.getDate()}`; // Format: "Month Day, Year"
+    const formattedYear = `${currentDate.getFullYear()}`
+
     return (
         <div className="bg-black p-16">
             <div className="bg-[#EFEFEF] p-10 border rounded-md">
@@ -17,9 +53,10 @@ function Landing() {
                 
                 {/* Cards */}
                 <div className="flex justify-between gap-7 my-5 flex-wrap">
-                    <Card bgcolor={"#8272DA"} title={"23"} subtitle={"Chennai"} />
-                    <Card bgcolor={"#FD6663"} title={"October 25"} subtitle={"14:01:01"} />
-                    <Card bgcolor={"#FCA201"} title={"Build Using"} subtitle={"React"} />
+                <Card bgcolor={"#4CAF50 "} title={weather.temp ? `${weather.temp}°C` : "Loading..."}
+                        subtitle={weather.condition ? weather.condition : "Fetching weather..."}/>
+                    <Card bgcolor={"#FF4081"} title={formattedDate} subtitle={<strong>{formattedYear}</strong>} />
+                    <Card bgcolor={"#FBB13C"} title={"Build Using"} subtitle={"React"} />
                 </div>
                 
                 {/* Todo Container */}

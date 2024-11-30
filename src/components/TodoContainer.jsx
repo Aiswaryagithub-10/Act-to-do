@@ -5,9 +5,7 @@ import { useState } from "react";
 
 function TodoContainer() {
   const [activityArr, setActivityArr] = useState([
-    { id: 1, activity: "Go for a walk" },
-    { id: 2, activity: "Take a shower" },
-    { id: 3, activity: "Have Breakfast" }
+
   ]);
 
   return (
