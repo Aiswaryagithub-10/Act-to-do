@@ -53,11 +53,26 @@ function Landing() {
                 
                 {/* Cards */}
                 <div className="flex justify-between gap-7 my-5 flex-wrap">
-                <Card bgcolor={"#4CAF50 "} title={weather.temp ? `${weather.temp}°C` : "Loading..."}
-                        subtitle={weather.condition ? weather.condition : "Fetching weather..."}/>
-                    <Card bgcolor={"#FF4081"} title={formattedDate} subtitle={<strong>{formattedYear}</strong>} />
-                    <Card bgcolor={"#FBB13C"} title={"Build Using"} subtitle={"React"} />
-                </div>
+  <Card
+    bgcolor={"#4CAF50"}
+    title={weather.temp ? `${weather.temp}°C` : "Loading..."}
+    subtitle={weather.condition ? weather.condition : "Fetching weather..."}
+    className="p-5 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
+  />
+  <Card
+    bgcolor={"#FF4081"}
+    title={formattedDate}
+    subtitle={<strong>{formattedYear}</strong>}
+    className="p-5 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
+  />
+  <Card
+    bgcolor={"#FBB13C"}
+    title={"Build Using"}
+    subtitle={"React"}
+    className="p-5 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
+  />
+</div>
+
                 
                 {/* Todo Container */}
                 <TodoContainer />
