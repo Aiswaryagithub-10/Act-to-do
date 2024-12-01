@@ -44,41 +44,40 @@ function Landing() {
 
     return (
         <div className="bg-black p-16">
-            <div className="bg-[#EFEFEF] p-10 border rounded-md">
-                {/* Welcome Message */}
-                <h1>Welcome, {user}!</h1>
-                
-                {/* Header */}
-                <Header />
-                
-                {/* Cards */}
-                <div className="flex justify-between gap-7 my-5 flex-wrap">
+        <div className="bg-[#EFEFEF] p-10 border rounded-md">
+          {/* Welcome Message */}
+          <h1 className="text-lg font-bold mb-4">Welcome, {user}!</h1>
+  
+          {/* Header */}
+          <Header />
+  
+          {/* Cards */}
+          <div className="flex justify-between gap-4 my-5 flex-wrap">
   <Card
-    bgcolor={"#4CAF50"}
+    bgcolor="#4CAF50"
     title={weather.temp ? `${weather.temp}°C` : "Loading..."}
     subtitle={weather.condition ? weather.condition : "Fetching weather..."}
-    className="p-5 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
+    className="shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
   />
   <Card
-    bgcolor={"#FF4081"}
+    bgcolor="#FF4081"
     title={formattedDate}
     subtitle={<strong>{formattedYear}</strong>}
-    className="p-5 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
+    className="shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
   />
   <Card
-    bgcolor={"#FBB13C"}
-    title={"Build Using"}
-    subtitle={"React"}
-    className="p-5 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
+    bgcolor="#FBB13C"
+    title="Build Using"
+    subtitle="React"
+    className="shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
   />
 </div>
 
-                
-                {/* Todo Container */}
-                <TodoContainer />
-            </div>
+  
+          {/* Todo Container */}
+          <TodoContainer />
         </div>
+      </div>
     );
-}
-
+  }
 export default Landing;
