@@ -9,7 +9,7 @@ function TodoItem({ item, index, activityArr, setActivityArr }) {
       <div className="flex justify-between">
         <p>{index + 1}. {item.activity}</p>
         <button className="text-red-500" onClick={() => handleDelete(item.id)}>
-          Delete
+        Delete 🗑️
         </button>
       </div>
     );

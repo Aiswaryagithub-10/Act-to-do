@@ -43,10 +43,10 @@ function Landing() {
     const formattedYear = `${currentDate.getFullYear()}`
 
     return (
-        <div className="bg-black p-16">
-        <div className="bg-[#EFEFEF] p-10 border rounded-md">
+        <div className="bg-[#212E37] p-16">
+        <div className="bg-[#A9E0C1] p-10 border rounded-md">
           {/* Welcome Message */}
-          <h1 className="text-lg font-bold mb-4">Welcome, {user}!</h1>
+          <h1 className="text-3xl font-medium ">Welcome {user}!</h1>
   
           {/* Header */}
           <Header />
@@ -54,19 +54,19 @@ function Landing() {
           {/* Cards */}
           <div className="flex justify-between gap-4 my-5 flex-wrap">
   <Card
-    bgcolor="#4CAF50"
+    bgcolor="#FF8D4E"
     title={weather.temp ? `${weather.temp}°C` : "Loading..."}
     subtitle={weather.condition ? weather.condition : "Fetching weather..."}
     className="shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
   />
   <Card
-    bgcolor="#FF4081"
+    bgcolor="#C43E5F"
     title={formattedDate}
     subtitle={<strong>{formattedYear}</strong>}
     className="shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
   />
   <Card
-    bgcolor="#FBB13C"
+    bgcolor="#26C3A6"
     title="Build Using"
     subtitle="React"
     className="shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"

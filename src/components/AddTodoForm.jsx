@@ -20,7 +20,7 @@ function AddTodoForm({ activityArr, setActivityArr }) {
       <div>
         <input
           type="text"
-          className="border border-black bg-transparent p-1"
+          className="border border-black p-1"
           placeholder="Next Activity?"
           value={newactivity} // Bind the value to the state
           onChange={handleChange} // Call handleChange on input change
